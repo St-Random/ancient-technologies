@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\IAnimation.cs" />
+    <Compile Include="Animations\IAnimationDictionary.cs" />
     <Compile Include="Camera\Camera2D.cs" />
     <Compile Include="Camera\ICamera2D.cs" />
     <Compile Include="Control\Controllers\AbstractController.cs" />

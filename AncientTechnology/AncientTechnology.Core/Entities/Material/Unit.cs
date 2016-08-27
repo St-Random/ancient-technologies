@@ -1,4 +1,5 @@
-﻿using AncientTechnology.Core.Control.Controllers;
+﻿using AncientTechnology.Core.Animations;
+using AncientTechnology.Core.Control.Controllers;
 using AncientTechnology.Core.Control.Managers;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
@@ -13,9 +14,13 @@ namespace AncientTechnology.Core.Entities.Material
             _controller = controller;
         }
 
+        public Animation Animation { get; set; }
+
         public override void Update(GameTime gameTime)
         {
             //Debug.WriteLine(_position.X.ToString() + " " + _position.Y.ToString());
+            Animation.Update(gameTime);
+            Sprite = Animation.CurrentFrame;
 
             base.Update(gameTime);
         }

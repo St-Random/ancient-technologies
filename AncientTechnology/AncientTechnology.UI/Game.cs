@@ -1,10 +1,13 @@
-﻿using AncientTechnology.Core.Camera;
+﻿using AncientTechnology.Core.Animations;
+using AncientTechnology.Core.Camera;
 using AncientTechnology.Core.Control.Managers;
 using AncientTechnology.Core.Entities.Material;
 using Autofac;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -32,20 +35,11 @@ namespace AncientTechnology.UI
             var viewportHeight = GraphicsDevice.Viewport.Height;
             _camera = new Camera2D(viewportWidth, viewportHeight);
 
-            var unit = _scope.Resolve<Unit>();
-            var texture = new Texture2D(GraphicsDevice, 100, 100);
-            var colorData = Enumerable.Repeat(Color.Red, 100 * 100).ToArray();
-            texture.SetData(colorData);
-            unit.Sprite = texture;
-            unit.Position = new Vector2(100, 200);
-            unit.Speed = 5;
-            _camera.Focus = unit;
-            unit.Initialize();
-            _manager.Add(unit);
+            TestAnimation();    
 
             var block = _scope.Resolve<Block>();
-            texture = new Texture2D(GraphicsDevice, 200, 50);
-            colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
+            var texture = new Texture2D(GraphicsDevice, 200, 50);
+            var colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
             texture.SetData(colorData);
             block.Sprite = texture;
             block.Position = new Vector2(280, 400);
@@ -98,6 +92,37 @@ namespace AncientTechnology.UI
             _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        protected void TestAnimation()
+        {
+            var sprite1 = new Texture2D(GraphicsDevice, 100, 100);
+            var colorData = Enumerable.Repeat(Color.Red, 100 * 100).ToArray();
+            sprite1.SetData(colorData);
+
+            var sprite2 = new Texture2D(GraphicsDevice, 100, 100);
+            colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
+            sprite2.SetData(colorData);
+
+            var sprite3 = new Texture2D(GraphicsDevice, 100, 100);
+            colorData = Enumerable.Repeat(Color.Blue, 100 * 100).ToArray();
+            sprite3.SetData(colorData);
+
+            var animation = new Animation();
+            animation.SetFrames(new Texture2D[] { sprite1, sprite2, sprite3 });
+            animation.FrameRate = TimeSpan.FromSeconds(0.5);
+
+            var unit = _scope.Resolve<Unit>();
+            var texture = new Texture2D(GraphicsDevice, 100, 100);
+            colorData = Enumerable.Repeat(Color.Red, 100 * 100).ToArray();
+            texture.SetData(colorData);
+            unit.Sprite = texture;
+            unit.Position = new Vector2(100, 200);
+            unit.Speed = 5;
+            _camera.Focus = unit;
+            unit.Animation = animation;
+            unit.Initialize();
+            _manager.Add(unit);
         }
     }
 }
