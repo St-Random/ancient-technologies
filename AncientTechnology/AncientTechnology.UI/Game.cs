@@ -42,6 +42,15 @@ namespace AncientTechnology.UI
             _camera.Focus = unit;
             _manager.Add(unit);
 
+            var block = _scope.Resolve<Block>();
+            texture = new Texture2D(GraphicsDevice, 200, 50);
+            colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
+            texture.SetData(colorData);
+            block.Sprite = texture;
+            block.Position = new Vector2(280, 400);
+            _manager.Add(block);
+
+
             base.Initialize();
         }
 

@@ -1,5 +1,4 @@
 ﻿using AncientTechnology.Core.Camera;
-using AncientTechnology.Core.Entities;
 using Microsoft.Xna.Framework.Input;
 
 namespace AncientTechnology.Core.Control.Controllers
