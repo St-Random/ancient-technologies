@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camera\Camera.cs" />
+    <Compile Include="Camera\ICamera.cs" />
     <Compile Include="Control\Controllers\AbstractController.cs" />
     <Compile Include="Control\Controllers\IController.cs" />
     <Compile Include="Control\Managers\MainManager.cs" />
