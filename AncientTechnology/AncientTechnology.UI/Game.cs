@@ -16,8 +16,7 @@ namespace AncientTechnology.UI
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
         MainManager _manager;
-        Camera _camera;
-        Unit _unit;
+        Camera2D _camera;
 
         public Game(ILifetimeScope scope, MainManager manager)
         {
@@ -31,16 +30,17 @@ namespace AncientTechnology.UI
         {
             var viewportWidth = GraphicsDevice.Viewport.Width;
             var viewportHeight = GraphicsDevice.Viewport.Height;
-            _camera = new Camera(viewportWidth, viewportHeight);
+            _camera = new Camera2D(viewportWidth, viewportHeight);
 
-            _unit = _scope.Resolve<Unit>();
+            var unit = _scope.Resolve<Unit>();
             var texture = new Texture2D(GraphicsDevice, 100, 100);
             var colorData = Enumerable.Repeat(Color.Red, 100 * 100).ToArray();
             texture.SetData(colorData);
-            _unit.Sprite = texture;
-            _unit.Position = new Vector2(100, 200);
-            _camera.Focus = _unit;
-            _manager.Add(_unit);
+            unit.Sprite = texture;
+            unit.Position = new Vector2(100, 200);
+            unit.Speed = 10;
+            _camera.Focus = unit;
+            _manager.Add(unit);
 
             base.Initialize();
         }
@@ -56,17 +56,6 @@ namespace AncientTechnology.UI
 
         protected override void Update(GameTime gameTime)
         {
-            var state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.Left))
-                _unit.Position += new Vector2(-10, 0);
-            if (state.IsKeyDown(Keys.Right))
-                _unit.Position += new Vector2(10, 0);
-            if (state.IsKeyDown(Keys.Down))
-                _unit.Position += new Vector2(0, 10);
-            if (state.IsKeyDown(Keys.Up))
-                _unit.Position += new Vector2(0, -10);
-
             _manager.Update(gameTime);
             _camera.Update(gameTime);
             base.Update(gameTime);

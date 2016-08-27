@@ -1,15 +1,16 @@
-﻿using AncientTechnology.Core.Entities;
+﻿using AncientTechnology.Core.Control.Controllers;
+using AncientTechnology.Core.Entities;
 using Microsoft.Xna.Framework;
 
 namespace AncientTechnology.Core.Camera
 {
-    public class Camera : BaseUpdateableObject, ICamera
+    public class Camera2D : BaseUpdateableObject, ICamera2D
     {
         private Vector2 _position;
         private float _viewportWidth;
         private float _viewportHeight;
 
-        public Camera(int viewportWidth, int viewportHeight)
+        public Camera2D(int viewportWidth, int viewportHeight)
         {
             _viewportWidth = viewportWidth;
             _viewportHeight = viewportHeight;
@@ -17,6 +18,8 @@ namespace AncientTechnology.Core.Camera
             ScreenCenter = new Vector2(_viewportWidth / 2, _viewportHeight / 2);
             Scale = 1;
             MoveSpeed = 2.25f;
+
+            _controller = new CameraController();
         }
 
         #region Properties

@@ -15,5 +15,15 @@ namespace AncientTechnology.Core.Entities.Material
         {
             _manager = manager;
         }
+
+        public float Speed { get; set; }
+
+        public void Move(Orientation direction)
+        {
+            Orientation = direction;
+
+            var finalX = Position.X + (int)Orientation * Speed;
+            _position.X = finalX;
+        }
     }
 }

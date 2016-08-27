@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientTechnology.Core.Entities
+﻿namespace AncientTechnology.Core.Entities
 {
     public interface IMovableObject
     {
+        float Speed { get; set; }
+
+        void Move(Orientation direction);
     }
 }
