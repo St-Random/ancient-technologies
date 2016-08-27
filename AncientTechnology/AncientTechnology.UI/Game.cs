@@ -81,7 +81,7 @@ namespace AncientTechnology.UI
                 BlendState.AlphaBlend,
                 transformMatrix: _camera.Transform);
 
-            foreach (var visualObject in _manager.ObjectsToDraw)
+            foreach (var visualObject in _manager.VisualObjects)
             {
                 _spriteBatch.Draw(
                     visualObject.Sprite,
