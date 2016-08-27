@@ -1,6 +1,6 @@
 ﻿namespace AncientTechnology.Core.Entities
 {
-    public abstract class VisualObject : BaseUpdateableObject, IVisualObject
+    public abstract class VisualObject : BaseUpdateableObject//, IVisualObject
     {
     }
 }

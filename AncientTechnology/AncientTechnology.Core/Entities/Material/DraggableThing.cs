@@ -1,6 +1,6 @@
 ﻿namespace AncientTechnology.Core.Entities.Material
 {
-    public class DraggableThing : MaterialObject, IThing
+    public class DraggableThing : MovableObject, IThing
     {
     }
 }
