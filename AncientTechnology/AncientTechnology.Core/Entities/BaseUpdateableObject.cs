@@ -15,7 +15,9 @@ namespace AncientTechnology.Core.Entities
         public virtual void Update(GameTime gameTime)
         {
             if (_controller != null)
+            {
                 _controller.Start(this);
+            }
         }
     }
 }
