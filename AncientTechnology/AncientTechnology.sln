@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientTechnology.Core", "AncientTechnology.Core\AncientTechnology.Core.csproj", "{2932E57C-9032-4DD8-B946-AAAF3311655A}"
 EndProject
@@ -24,6 +24,7 @@ Global
 		{2932E57C-9032-4DD8-B946-AAAF3311655A}.Release|x86.ActiveCfg = Release|Any CPU
 		{2932E57C-9032-4DD8-B946-AAAF3311655A}.Release|x86.Build.0 = Release|Any CPU
 		{1DBF3E70-6699-4D7F-90A0-EEC88C21147B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{1DBF3E70-6699-4D7F-90A0-EEC88C21147B}.Debug|Any CPU.Build.0 = Debug|x86
 		{1DBF3E70-6699-4D7F-90A0-EEC88C21147B}.Debug|x86.ActiveCfg = Debug|x86
 		{1DBF3E70-6699-4D7F-90A0-EEC88C21147B}.Debug|x86.Build.0 = Debug|x86
 		{1DBF3E70-6699-4D7F-90A0-EEC88C21147B}.Release|Any CPU.ActiveCfg = Release|x86
