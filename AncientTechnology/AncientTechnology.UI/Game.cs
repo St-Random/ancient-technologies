@@ -38,23 +38,10 @@ namespace AncientTechnology.UI
             Container = builder.Build();
             _scope = Container.BeginLifetimeScope();
 
-            TestAnimation();    
+            _manager = _scope.Resolve<MainManager>();
+            _manager.LoadLevel(1);
 
-            var block = _scope.Resolve<Block>();
-            var texture = new Texture2D(GraphicsDevice, 200, 50);
-            var colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
-            texture.SetData(colorData);
-            block.SetBaseSprite(texture);
-            block.Position = new Vector2(280, 400);
-            _manager.Add(block);
-
-            var block1 = _scope.Resolve<Block>();
-            texture = new Texture2D(GraphicsDevice, 200, 50);
-            colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
-            texture.SetData(colorData);
-            block1.SetBaseSprite(texture);
-            block1.Position = new Vector2(200, 600);
-            _manager.Add(block1);
+            TestAnimation();
 
             base.Initialize();
         }
