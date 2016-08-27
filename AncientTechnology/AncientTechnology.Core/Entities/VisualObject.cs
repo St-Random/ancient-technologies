@@ -33,6 +33,5 @@ namespace AncientTechnology.Core.Entities {
 
         public Texture2D Sprite { get; set; }
         public float Rotation { get; set; }
-
     }
 }
