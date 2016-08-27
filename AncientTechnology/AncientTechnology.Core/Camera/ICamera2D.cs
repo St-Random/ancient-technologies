@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace AncientTechnology.Core.Camera
 {
-    public interface ICamera : Entities.IUpdateable
+    public interface ICamera2D : Entities.IUpdateable
     {
         Vector2 Position { get; set; }
 

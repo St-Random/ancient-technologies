@@ -16,7 +16,7 @@ namespace AncientTechnology.UI
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
         MainManager _manager;
-        Camera _camera;
+        Camera2D _camera;
 
         public Game(ILifetimeScope scope, MainManager manager)
         {
@@ -30,7 +30,7 @@ namespace AncientTechnology.UI
         {
             var viewportWidth = GraphicsDevice.Viewport.Width;
             var viewportHeight = GraphicsDevice.Viewport.Height;
-            _camera = new Camera(viewportWidth, viewportHeight);
+            _camera = new Camera2D(viewportWidth, viewportHeight);
 
             var unit = _scope.Resolve<Unit>();
             var texture = new Texture2D(GraphicsDevice, 100, 100);
