@@ -14,8 +14,8 @@ namespace AncientTechnology.Core.Entities.Material
         protected MainManager _manager;
         protected Vector2 _positionToSet = new Vector2();
         protected Vector2 _previousPosition = new Vector2();
-        protected float _fallSpeed = 0.02f;
-        protected float _jumpAcceleration = -3f;
+        protected float _fallSpeed = 0.1f;
+        protected float _jumpAcceleration = -7f;
         protected float _verticalSpeed = 0f;
 
         protected bool _isStanding = false;
@@ -61,6 +61,17 @@ namespace AncientTechnology.Core.Entities.Material
 
         public override void Update(GameTime gameTime)
         {
+            CheckCollisions();
+
+            Fall();
+
+            base.Update(gameTime);
+        }
+
+        #region Collisions
+
+        protected void CheckCollisions()
+        {
             _previousPosition = new Vector2(_position.X, _position.Y);
 
             var closeMaterialObjects = _manager.GetObjectsInSquare(Position, 1000)
@@ -86,12 +97,7 @@ namespace AncientTechnology.Core.Entities.Material
                     break;
                 }
             }
-            
-            Fall();
-
-            base.Update(gameTime);
         }
-
         protected bool CheckXAxisCollisions(IVisualObject obj)
         {
             if (Bounds.Intersects(obj.Bounds))
@@ -123,5 +129,7 @@ namespace AncientTechnology.Core.Entities.Material
             }
             return false;
         }
+
+        #endregion
     }
 }
