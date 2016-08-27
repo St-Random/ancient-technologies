@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace AncientTechnology.Core.Configuration {
     public class IoCConfig : Module {
         protected override void Load(ContainerBuilder builder) {
-            builder.RegisterAssemblyTypes()
+            builder.RegisterAssemblyTypes(ThisAssembly)
                    .Where(t => t.Namespace.Contains("Core.Entities")
                                && t.IsClass && !t.IsAbstract && !t.IsInterface)
                    .AsSelf()
                    .InstancePerDependency();
 
-            builder.RegisterAssemblyTypes()
+            builder.RegisterAssemblyTypes(ThisAssembly)
                    .Where(t => t.Name.EndsWith("Controller")
                                && t.IsClass && !t.IsAbstract && !t.IsInterface)
                    .AsSelf()
