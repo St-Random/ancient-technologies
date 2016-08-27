@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Control\Controllers\AbstractController.cs" />
     <Compile Include="Control\Controllers\IController.cs" />
+    <Compile Include="Control\Managers\MainManager.cs" />
     <Compile Include="Entities\BaseUpdateableObject.cs" />
     <Compile Include="Entities\Immaterial\Decoration.cs" />
     <Compile Include="Entities\Immaterial\ImmaterialObject.cs" />
