@@ -15,7 +15,7 @@ namespace AncientTechnology.Core.Entities.Material
 
         public override void Update(GameTime gameTime)
         {
-            Debug.WriteLine(_position.X.ToString() + " " + _position.Y.ToString());
+            //Debug.WriteLine(_position.X.ToString() + " " + _position.Y.ToString());
 
             base.Update(gameTime);
         }

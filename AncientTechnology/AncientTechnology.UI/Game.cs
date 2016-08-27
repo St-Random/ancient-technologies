@@ -38,7 +38,7 @@ namespace AncientTechnology.UI
             texture.SetData(colorData);
             unit.Sprite = texture;
             unit.Position = new Vector2(100, 200);
-            unit.Speed = 10;
+            unit.Speed = 5;
             _camera.Focus = unit;
             unit.Initialize();
             _manager.Add(unit);

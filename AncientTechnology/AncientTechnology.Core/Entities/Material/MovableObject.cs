@@ -14,7 +14,11 @@ namespace AncientTechnology.Core.Entities.Material
         protected MainManager _manager;
         protected Vector2 _positionToSet = new Vector2();
         protected Vector2 _previousPosition = new Vector2();
-        protected float _fallSpeed = 2f;
+        protected float _fallSpeed = 0.02f;
+        protected float _jumpAcceleration = -3f;
+        protected float _verticalSpeed = 0f;
+
+        protected bool _isStanding = false;
 
         public MovableObject(MainManager manager)
         {
@@ -37,7 +41,10 @@ namespace AncientTechnology.Core.Entities.Material
         }
         public void Jump()
         {
-            _positionToSet.Y = _position.Y - 10;
+            if (_isStanding)
+            {
+                _verticalSpeed += _jumpAcceleration;
+            }
         }
         public void FastFall()
         {
@@ -45,14 +52,18 @@ namespace AncientTechnology.Core.Entities.Material
         }
         protected void Fall()
         {
-            _positionToSet.Y = _position.Y + _fallSpeed;
+            if (_isStanding == false)
+            {
+                _verticalSpeed += _fallSpeed;
+            }
+            _positionToSet.Y = _position.Y + _verticalSpeed;
         }
 
         public override void Update(GameTime gameTime)
         {
             _previousPosition = new Vector2(_position.X, _position.Y);
 
-            var closeMaterialObjects = _manager.GetObjectsInSquare(Position, 8000)
+            var closeMaterialObjects = _manager.GetObjectsInSquare(Position, 1000)
                 .Where(x => x is MaterialObject)
                 .Where(x => x != this);
 
@@ -92,9 +103,22 @@ namespace AncientTechnology.Core.Entities.Material
         }
         protected bool CheckYAxisCollisions(IVisualObject obj)
         {
+            _isStanding = false;
             if (Bounds.Intersects(obj.Bounds))
             {
                 _position.Y = _previousPosition.Y;
+
+                if (Math.Abs(obj.Bounds.Top - Bounds.Bottom) < 5)
+                {
+                    _verticalSpeed = 0;
+                    _isStanding = true;
+                    Debug.WriteLine("standed");
+                }
+                if (Math.Abs(Bounds.Top - obj.Bounds.Bottom) < 5)
+                {
+                    _verticalSpeed = 0;
+                }
+
                 return true;
             }
             return false;
