@@ -56,6 +56,7 @@
     <Compile Include="Entities\Immaterial\ImmaterialObject.cs" />
     <Compile Include="Entities\Immaterial\InteractableThing.cs" />
     <Compile Include="Entities\Immaterial\InventoryThingContainer.cs" />
+    <Compile Include="Entities\IMovableObject.cs" />
     <Compile Include="Entities\IThing.cs" />
     <Compile Include="Entities\IUpdateable.cs" />
     <Compile Include="Entities\IVisualObject.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Entities\Material\DraggableThing.cs" />
     <Compile Include="Entities\Material\IUnit.cs" />
     <Compile Include="Entities\Material\MaterialObject.cs" />
+    <Compile Include="Entities\Material\MovableObject.cs" />
     <Compile Include="Entities\Material\Unit.cs" />
     <Compile Include="Entities\VisualObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

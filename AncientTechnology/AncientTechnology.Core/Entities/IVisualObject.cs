@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AncientTechnology.Core.Entities {
-    public interface IVisualObject : IUpdateable {
+namespace AncientTechnology.Core.Entities
+{
+    public interface IVisualObject : IUpdateable
+    {
         /// <summary>
         /// Position of the center of the object
         /// </summary>
