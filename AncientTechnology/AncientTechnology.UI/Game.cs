@@ -5,6 +5,7 @@ using Autofac;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 using System.Linq;
 
 namespace AncientTechnology.UI

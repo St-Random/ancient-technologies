@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
 
 namespace AncientTechnology.Core.Control.Managers
 {
-    public class MainManager : Entities.IUpdateable
+    public class MainManager : IUpdateable
     {
-        private IList<Entities.IUpdateable> _boiler = new List<Entities.IUpdateable>();
+        private IList<IUpdateable> _boiler = new List<IUpdateable>();
 
         public IList<IVisualObject> ObjectsToDraw
         {
@@ -22,12 +21,12 @@ namespace AncientTechnology.Core.Control.Managers
             }
         }
 
-        public void Add(Entities.IUpdateable updateable)
+        public void Add(IUpdateable updateable)
         {
             _boiler.Add(updateable);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
             foreach (var updateable in _boiler)
             {
