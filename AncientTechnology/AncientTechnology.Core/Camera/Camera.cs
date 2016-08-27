@@ -16,7 +16,7 @@ namespace AncientTechnology.Core.Camera
 
             ScreenCenter = new Vector2(_viewportWidth / 2, _viewportHeight / 2);
             Scale = 1;
-            MoveSpeed = 1.25f;
+            MoveSpeed = 2.25f;
         }
 
         #region Properties
