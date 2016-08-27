@@ -40,9 +40,6 @@ namespace AncientTechnology.UI
 
             _manager = _scope.Resolve<MainManager>();
             _manager.LoadLevel(1);
-
-            TestAnimation();
-
             base.Initialize();
         }
 
@@ -84,61 +81,6 @@ namespace AncientTechnology.UI
             _spriteBatch.End();
 
             base.Draw(gameTime);
-        }
-
-        protected void TestAnimation()
-        {
-            #region 1
-
-            var sprite1 = new Texture2D(GraphicsDevice, 100, 100);
-            var colorData = Enumerable.Repeat(Color.Red, 100 * 100).ToArray();
-            sprite1.SetData(colorData);
-
-            var sprite2 = new Texture2D(GraphicsDevice, 100, 100);
-            colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
-            sprite2.SetData(colorData);
-
-            var sprite3 = new Texture2D(GraphicsDevice, 100, 100);
-            colorData = Enumerable.Repeat(Color.Blue, 100 * 100).ToArray();
-            sprite3.SetData(colorData);
-
-            var animation1 = new Animation();
-            animation1.SetFrames(new Texture2D[] { sprite1, sprite2, sprite3 });
-            animation1.FrameRate = TimeSpan.FromSeconds(0.5);
-
-            #endregion
-
-            #region 2
-
-            sprite1 = new Texture2D(GraphicsDevice, 100, 100);
-            colorData = Enumerable.Repeat(Color.DarkOrange, 100 * 100).ToArray();
-            sprite1.SetData(colorData);
-
-            sprite2 = new Texture2D(GraphicsDevice, 100, 100);
-            colorData = Enumerable.Repeat(Color.Black, 100 * 100).ToArray();
-            sprite2.SetData(colorData);
-
-            sprite3 = new Texture2D(GraphicsDevice, 100, 100);
-            colorData = Enumerable.Repeat(Color.Gold, 100 * 100).ToArray();
-            sprite3.SetData(colorData);
-
-            var animation2 = new Animation();
-            animation2.SetFrames(new Texture2D[] { sprite1, sprite2, sprite3 });
-            animation2.FrameRate = TimeSpan.FromSeconds(0.5);
-
-            #endregion
-
-            var unit = _scope.Resolve<Unit>();
-            var texture = new Texture2D(GraphicsDevice, 100, 100);
-            colorData = Enumerable.Repeat(Color.Red, 100 * 100).ToArray();
-            texture.SetData(colorData);
-            unit.SetBaseSprite(texture);
-            unit.Position = new Vector2(100, 200);
-            unit.Speed = 5;
-            unit.Animations.AddAnimation(State.Moving, animation1);
-            unit.Animations.AddAnimation(State.Falling, animation2);
-            unit.Initialize();
-            _manager.Add(unit);
         }
     }
 }

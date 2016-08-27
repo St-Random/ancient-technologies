@@ -69,7 +69,6 @@ namespace AncientTechnology.Core.Animations
 
         public override void Initialize()
         {
-            _state = _animations.First().Key;
         }
 
         public override void Update(GameTime gameTime)

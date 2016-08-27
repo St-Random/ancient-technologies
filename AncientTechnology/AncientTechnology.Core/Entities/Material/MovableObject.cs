@@ -114,13 +114,13 @@ namespace AncientTechnology.Core.Entities.Material
             {
                 _position.Y = _previousPosition.Y;
 
-                if (Math.Abs(obj.Bounds.Top - Bounds.Bottom) < 5)
+                if (Math.Abs(obj.Bounds.Top - Bounds.Bottom) < 10)
                 {
                     _verticalSpeed = 0;
                     _isStanding = true;
                     _states.Remove(State.Falling);
                 }
-                if (Math.Abs(Bounds.Top - obj.Bounds.Bottom) < 5)
+                if (Math.Abs(Bounds.Top - obj.Bounds.Bottom) < 10)
                 {
                     _verticalSpeed = 0;
                 }
