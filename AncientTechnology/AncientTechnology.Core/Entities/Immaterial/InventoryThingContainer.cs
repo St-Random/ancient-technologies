@@ -1,6 +1,6 @@
 ﻿namespace AncientTechnology.Core.Entities.Immaterial
 {
-    public class InventoryThingContainer : ImmaterialObject, IThing
+    public class InventoryThingContainer : ImmaterialObject
     {
     }
 }
