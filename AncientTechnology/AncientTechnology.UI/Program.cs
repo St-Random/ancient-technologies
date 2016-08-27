@@ -7,19 +7,13 @@ namespace AncientTechnology.UI {
     /// The main class.
     /// </summary>
     public static class Program {
-        public static IContainer Container { get; private set; }
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main() {
-            var builder = new ContainerBuilder();
-            builder.RegisterModule<Configuration.IoCConfig>();
-            Container = builder.Build();
 
-            using (var scope = Container.BeginLifetimeScope()) {
-                var game = Container.Resolve<Game>();
+            using (var game = new Game()) {
                 game.Run();
             }
 

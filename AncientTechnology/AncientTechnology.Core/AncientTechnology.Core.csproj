@@ -56,6 +56,9 @@
     <Compile Include="Control\Controllers\TestUnitController.cs" />
     <Compile Include="Control\Managers\MainManager.cs" />
     <Compile Include="Control\Managers\helpers\MainManagerExtensions.cs" />
+    <Compile Include="Entities\Factories\ILevelFactory.cs" />
+    <Compile Include="Entities\Factories\TestLevelFactory.cs" />
+    <Compile Include="Entities\GameLevel.cs" />
     <Compile Include="Entities\interfaces\IInteractable.cs" />
     <Compile Include="Entities\interfaces\IInteractor.cs" />
     <Compile Include="Helpers\DistanceHelper.cs" />

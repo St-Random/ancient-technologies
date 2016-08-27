@@ -1,6 +1,6 @@
 ﻿namespace AncientTechnology.Core.Entities
 {
-    public interface IMovableObject
+    public interface IMovableObject : IUpdateable
     {
         float Speed { get; set; }
 
