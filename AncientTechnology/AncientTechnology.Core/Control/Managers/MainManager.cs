@@ -1,6 +1,7 @@
 ﻿using AncientTechnology.Core.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace AncientTechnology.Core.Control.Managers {
     public class MainManager : IUpdateable {
@@ -8,8 +9,7 @@ namespace AncientTechnology.Core.Control.Managers {
 
         public IEnumerable<IVisualObject> VisualObjects {
             get {
-                return _boiler.Where(x => x is IVisualObject)
-                        as IEnumerable<IVisualObject>;
+                return _boiler.Where(x => x is IVisualObject).Cast<IVisualObject>();
             }
         }
 
@@ -27,5 +27,9 @@ namespace AncientTechnology.Core.Control.Managers {
             }
         }
 
+        public void Initialize()
+        {
+            
+        }
     }
 }

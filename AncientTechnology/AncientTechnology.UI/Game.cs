@@ -40,6 +40,7 @@ namespace AncientTechnology.UI
             unit.Position = new Vector2(100, 200);
             unit.Speed = 10;
             _camera.Focus = unit;
+            unit.Initialize();
             _manager.Add(unit);
 
             var block = _scope.Resolve<Block>();
@@ -50,6 +51,13 @@ namespace AncientTechnology.UI
             block.Position = new Vector2(280, 400);
             _manager.Add(block);
 
+            var block1 = _scope.Resolve<Block>();
+            texture = new Texture2D(GraphicsDevice, 200, 50);
+            colorData = Enumerable.Repeat(Color.Green, 100 * 100).ToArray();
+            texture.SetData(colorData);
+            block1.Sprite = texture;
+            block1.Position = new Vector2(200, 600);
+            _manager.Add(block1);
 
             base.Initialize();
         }

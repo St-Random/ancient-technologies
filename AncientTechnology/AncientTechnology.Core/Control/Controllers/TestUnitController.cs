@@ -19,6 +19,16 @@ namespace AncientTechnology.Core.Control.Controllers
             {
                 obj.Move(Orientation.Right);
             }
+
+            if (state.IsKeyDown(Keys.Space))
+            {
+                obj.Jump();
+            }
+
+            if (state.IsKeyDown(Keys.Down))
+            {
+                obj.FastFall();
+            }
         }
     }
 }

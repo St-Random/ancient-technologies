@@ -7,6 +7,9 @@ namespace AncientTechnology.Core.Entities
     {
         protected IController _controller = null;
 
+        public virtual void Initialize()
+        { }
+
         public virtual void Update(GameTime gameTime)
         {
             if (_controller != null)

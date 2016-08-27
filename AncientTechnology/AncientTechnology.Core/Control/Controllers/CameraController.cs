@@ -9,18 +9,16 @@ namespace AncientTechnology.Core.Control.Controllers
 
         protected override void Start(Camera2D obj)
         {
-            return;
-
             var keyboardState = Keyboard.GetState();
             var mouseState = Mouse.GetState();
 
             if (mouseState.ScrollWheelValue > previousScrollState)
             {
-                obj.Scale += 0.5f;
+                obj.Scale += 0.1f;
             }
             if (mouseState.ScrollWheelValue < previousScrollState)
             {
-                obj.Scale -= 0.5f;
+                obj.Scale -= 0.1f;
             }
 
             previousScrollState = mouseState.ScrollWheelValue;

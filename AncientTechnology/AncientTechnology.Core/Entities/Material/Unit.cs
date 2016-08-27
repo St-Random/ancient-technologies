@@ -1,5 +1,7 @@
 ﻿using AncientTechnology.Core.Control.Controllers;
 using AncientTechnology.Core.Control.Managers;
+using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace AncientTechnology.Core.Entities.Material
 {
@@ -9,6 +11,13 @@ namespace AncientTechnology.Core.Entities.Material
             : base(manager)
         {
             _controller = controller;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            Debug.WriteLine(_position.X.ToString() + " " + _position.Y.ToString());
+
+            base.Update(gameTime);
         }
     }
 }
