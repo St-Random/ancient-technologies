@@ -1,6 +1,6 @@
 ﻿namespace AncientTechnology.Core.Entities.Material
 {
-    public interface IUnit
+    public interface IUnit : IMovableObject, IVisualObject
     {
     }
 }

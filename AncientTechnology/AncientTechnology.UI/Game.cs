@@ -16,25 +16,27 @@ namespace AncientTechnology.UI
 {
     public class Game : Microsoft.Xna.Framework.Game
     {
-        ILifetimeScope _scope;
-        GraphicsDeviceManager _graphics;
-        SpriteBatch _spriteBatch;
-        MainManager _manager;
-        Camera2D _camera;
+        public static IContainer Container { get; private set; }
+        private ILifetimeScope _scope;
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
+        private MainManager _manager;
 
-        public Game(ILifetimeScope scope, MainManager manager)
+        public Game()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            _scope = scope;
-            _manager = manager;
         }
 
         protected override void Initialize()
         {
-            var viewportWidth = GraphicsDevice.Viewport.Width;
-            var viewportHeight = GraphicsDevice.Viewport.Height;
-            _camera = new Camera2D(viewportWidth, viewportHeight);
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<Configuration.IoCConfig>();
+            builder.RegisterInstance(GraphicsDevice)
+                   .AsSelf()
+                   .ExternallyOwned();
+            Container = builder.Build();
+            _scope = Container.BeginLifetimeScope();
 
             TestAnimation();    
 
@@ -64,12 +66,14 @@ namespace AncientTechnology.UI
 
         protected override void UnloadContent()
         {
+            _scope.Dispose();
+            Container.Dispose();
         }
 
         protected override void Update(GameTime gameTime)
         {
             _manager.Update(gameTime);
-            _camera.Update(gameTime);
+            _manager.CurrentLevel.Camera.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -80,7 +84,7 @@ namespace AncientTechnology.UI
             _spriteBatch.Begin(
                 SpriteSortMode.FrontToBack,
                 BlendState.AlphaBlend,
-                transformMatrix: _camera.Transform);
+                transformMatrix: _manager.CurrentLevel.Camera.Transform);
 
             foreach (var visualObject in _manager.VisualObjects)
             {
@@ -144,7 +148,6 @@ namespace AncientTechnology.UI
             unit.SetBaseSprite(texture);
             unit.Position = new Vector2(100, 200);
             unit.Speed = 5;
-            _camera.Focus = unit;
             unit.Animations.AddAnimation(State.Moving, animation1);
             unit.Animations.AddAnimation(State.Falling, animation2);
             unit.Initialize();

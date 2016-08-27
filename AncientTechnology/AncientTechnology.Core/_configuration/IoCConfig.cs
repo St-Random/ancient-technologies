@@ -1,4 +1,5 @@
 ﻿using AncientTechnology.Core.Control.Managers;
+using AncientTechnology.Core.Entities.Factories;
 using Autofac;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,10 @@ namespace AncientTechnology.Core.Configuration {
                    .AsImplementedInterfaces()
                    .InstancePerLifetimeScope();
 
+            builder.RegisterType<TestLevelFactory>()
+                   .AsSelf()
+                   .As<ILevelFactory>()
+                   .InstancePerLifetimeScope();
 
             builder.RegisterType<MainManager>()
                    .AsSelf()
