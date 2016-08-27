@@ -25,5 +25,9 @@ namespace AncientTechnology.Core.Entities
         /// Object rotation in radians
         /// </summary>
         float Rotation { get; set; }
+        /// <summary>
+        /// Object orientation, left or right
+        /// </summary>
+        Orientation Orientation { get; set; }
     }
 }

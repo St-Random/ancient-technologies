@@ -5,7 +5,7 @@ namespace AncientTechnology.Core.Entities
 {
     public abstract class BaseUpdateableObject : IUpdateable
     {
-        private IController _controller = null;
+        protected IController _controller = null;
 
         public virtual void Update(GameTime gameTime)
         {

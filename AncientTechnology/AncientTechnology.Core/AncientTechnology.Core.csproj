@@ -52,6 +52,7 @@
     <Compile Include="Camera\ICamera.cs" />
     <Compile Include="Control\Controllers\AbstractController.cs" />
     <Compile Include="Control\Controllers\IController.cs" />
+    <Compile Include="Control\Controllers\TestUnitController.cs" />
     <Compile Include="Control\Managers\MainManager.cs" />
     <Compile Include="Entities\BaseUpdateableObject.cs" />
     <Compile Include="Entities\Immaterial\Decoration.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Entities\Material\MaterialObject.cs" />
     <Compile Include="Entities\Material\MovableObject.cs" />
     <Compile Include="Entities\Material\Unit.cs" />
+    <Compile Include="Entities\Orientation.cs" />
     <Compile Include="Entities\VisualObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_configuration\IoCConfig.cs" />

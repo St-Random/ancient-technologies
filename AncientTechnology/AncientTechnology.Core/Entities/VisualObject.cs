@@ -1,10 +1,12 @@
 ﻿using System;
+using AncientTechnology.Core.Control.Controllers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace AncientTechnology.Core.Entities {
 
-    public abstract class VisualObject : BaseUpdateableObject, IVisualObject {
+    public abstract class VisualObject : BaseUpdateableObject, IVisualObject
+    {
         protected Vector2 _position;
 
         public Vector2 Position {
@@ -33,5 +35,6 @@ namespace AncientTechnology.Core.Entities {
 
         public Texture2D Sprite { get; set; }
         public float Rotation { get; set; }
+        public Orientation Orientation { get; set; }
     }
 }
