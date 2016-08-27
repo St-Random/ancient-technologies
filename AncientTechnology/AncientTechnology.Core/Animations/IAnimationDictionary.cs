@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using AncientTechnology.Core.Entities;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace AncientTechnology.Core.Animations
 {
-    public interface IAnimationDictionary
+    public interface IAnimationDictionary : IUpdateable
     {
         Texture2D CurrentSprite { get; }
 
-        void SetState(string state);
+        void SetState(State state);
 
-        void AddAnimation(IAnimation animation);
+        void AddAnimation(State state, IAnimation animation);
     }
 }

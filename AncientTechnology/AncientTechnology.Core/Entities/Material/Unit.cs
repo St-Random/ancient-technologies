@@ -14,13 +14,9 @@ namespace AncientTechnology.Core.Entities.Material
             _controller = controller;
         }
 
-        public Animation Animation { get; set; }
-
         public override void Update(GameTime gameTime)
         {
             //Debug.WriteLine(_position.X.ToString() + " " + _position.Y.ToString());
-            Animation.Update(gameTime);
-            Sprite = Animation.CurrentFrame;
 
             base.Update(gameTime);
         }

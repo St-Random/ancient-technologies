@@ -31,6 +31,8 @@ namespace AncientTechnology.Core.Entities.Material
         {
             _positionToSet = _position;
             _previousPosition = _position;
+
+            base.Initialize();
         }
 
         public void Move(Orientation direction)
@@ -54,6 +56,7 @@ namespace AncientTechnology.Core.Entities.Material
         {
             if (_isStanding == false)
             {
+                _states.Add(State.Falling);
                 _verticalSpeed += _fallSpeed;
             }
             _positionToSet.Y = _position.Y + _verticalSpeed;
@@ -61,9 +64,8 @@ namespace AncientTechnology.Core.Entities.Material
 
         public override void Update(GameTime gameTime)
         {
-            CheckCollisions();
-
             Fall();
+            CheckCollisions();
 
             base.Update(gameTime);
         }
@@ -83,7 +85,6 @@ namespace AncientTechnology.Core.Entities.Material
             {
                 if (CheckXAxisCollisions(obj))
                 {
-                    Debug.WriteLine("X");
                     break;
                 }
             }
@@ -93,7 +94,6 @@ namespace AncientTechnology.Core.Entities.Material
             {
                 if (CheckYAxisCollisions(obj))
                 {
-                    Debug.WriteLine("Y");
                     break;
                 }
             }
@@ -118,7 +118,7 @@ namespace AncientTechnology.Core.Entities.Material
                 {
                     _verticalSpeed = 0;
                     _isStanding = true;
-                    Debug.WriteLine("standed");
+                    _states.Remove(State.Falling);
                 }
                 if (Math.Abs(Bounds.Top - obj.Bounds.Bottom) < 5)
                 {

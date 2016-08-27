@@ -29,5 +29,7 @@ namespace AncientTechnology.Core.Entities
         /// Object orientation, left or right
         /// </summary>
         Orientation Orientation { get; set; }
+
+        void SetBaseSprite(Texture2D sprite);
     }
 }

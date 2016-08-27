@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\AnimationDictionary.cs" />
     <Compile Include="Animations\IAnimation.cs" />
     <Compile Include="Animations\IAnimationDictionary.cs" />
     <Compile Include="Camera\Camera2D.cs" />
@@ -59,6 +60,8 @@
     <Compile Include="Control\Controllers\TestUnitController.cs" />
     <Compile Include="Control\Managers\MainManager.cs" />
     <Compile Include="Control\Managers\helpers\MainManagerExtensions.cs" />
+    <Compile Include="Control\Managers\StateManager.cs" />
+    <Compile Include="Entities\State.cs" />
     <Compile Include="Helpers\DistanceHelper.cs" />
     <Compile Include="Entities\BaseUpdateableObject.cs" />
     <Compile Include="Entities\Immaterial\Decoration.cs" />
