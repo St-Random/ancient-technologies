@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AncientTechnology.Core.Entities.Immaterial
+﻿namespace AncientTechnology.Core.Entities.Immaterial
 {
     public class InteractableThing : ImmaterialObject, IThing
     {
