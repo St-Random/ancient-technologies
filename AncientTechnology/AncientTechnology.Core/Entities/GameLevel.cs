@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 namespace AncientTechnology.Core.Entities {
     public class GameLevel {
         public int Id { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
         public string Name { get; set; }
         public Vector2 EntryPoint { get; set; }
         public IEnumerable<IUpdateable> GameObjects { get; set; }

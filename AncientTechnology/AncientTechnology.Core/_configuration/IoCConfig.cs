@@ -23,7 +23,7 @@ namespace AncientTechnology.Core.Configuration {
                    .AsImplementedInterfaces()
                    .InstancePerLifetimeScope();
 
-            builder.RegisterType<TestLevelFactory>()
+            builder.RegisterType<TestJSONLevelFactory>()
                    .AsSelf()
                    .As<ILevelFactory>()
                    .InstancePerLifetimeScope();
