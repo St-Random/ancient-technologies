@@ -50,6 +50,13 @@ namespace AncientTechnology.Core.Entities {
         public float Rotation { get; set; }
         public Orientation Orientation { get; set; } = Orientation.Right;
 
+        public StateManager States
+        {
+            get
+            {
+                return _states;
+            }
+        }
         protected State CurrentState
         {
             get

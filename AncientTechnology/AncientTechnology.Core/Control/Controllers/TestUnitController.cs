@@ -1,6 +1,7 @@
 ﻿using AncientTechnology.Core.Entities;
 using AncientTechnology.Core.Entities.Material;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
 namespace AncientTechnology.Core.Control.Controllers
 {
@@ -12,11 +13,13 @@ namespace AncientTechnology.Core.Control.Controllers
 
             if (state.IsKeyDown(Keys.Left))
             {
+                obj.States.Add(State.Moving);
                 obj.Move(Orientation.Left);
             }
 
             if (state.IsKeyDown(Keys.Right))
             {
+                obj.States.Add(State.Moving);
                 obj.Move(Orientation.Right);
             }
 
@@ -25,9 +28,14 @@ namespace AncientTechnology.Core.Control.Controllers
                 obj.Jump();
             }
 
-            if (state.IsKeyDown(Keys.Down))
+            if (state.IsKeyUp(Keys.Left))
             {
-                obj.FastFall();
+                obj.States.Remove(State.Moving);
+            }
+
+            if (state.IsKeyUp(Keys.Right))
+            {
+                obj.States.Remove(State.Moving);
             }
         }
     }

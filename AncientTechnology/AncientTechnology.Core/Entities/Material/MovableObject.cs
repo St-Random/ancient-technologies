@@ -48,10 +48,6 @@ namespace AncientTechnology.Core.Entities.Material
                 _verticalSpeed += _jumpAcceleration;
             }
         }
-        public void FastFall()
-        {
-            _positionToSet.Y = _position.Y + 10;
-        }
         protected void Fall()
         {
             if (_isStanding == false)
@@ -59,12 +55,20 @@ namespace AncientTechnology.Core.Entities.Material
                 _states.Add(State.Falling);
                 _verticalSpeed += _fallSpeed;
             }
+            else
+            {
+                _states.Remove(State.Falling);
+            }
+        }
+        protected void FinalizeVerticalMoving()
+        {
             _positionToSet.Y = _position.Y + _verticalSpeed;
         }
 
         public override void Update(GameTime gameTime)
         {
             Fall();
+            FinalizeVerticalMoving();
             CheckCollisions();
 
             base.Update(gameTime);
@@ -116,12 +120,15 @@ namespace AncientTechnology.Core.Entities.Material
 
                 if (Math.Abs(obj.Bounds.Top - Bounds.Bottom) < 10)
                 {
+                    _position.Y = obj.Bounds.Top - Bounds.Height / 2;
+
                     _verticalSpeed = 0;
                     _isStanding = true;
-                    _states.Remove(State.Falling);
                 }
                 if (Math.Abs(Bounds.Top - obj.Bounds.Bottom) < 10)
                 {
+                    _position.Y = obj.Bounds.Bottom + Bounds.Height / 2;
+
                     _verticalSpeed = 0;
                 }
 
